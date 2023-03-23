@@ -5,4 +5,3 @@ RA: 00109798
 
 # Exercícios
 Os exercícios de 1 a 10 estão no arquivo [Program.cs](backend_listaexercicios/Program.cs)
-A solução .sln do Visual Studio 2022 também está inclusa na pasta
