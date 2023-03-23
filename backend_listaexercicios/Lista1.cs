@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace backend_listaexercicios
 {
-    class Program
+    class Lista1
     {
         static void Main(string[] args)
         {
@@ -14,30 +14,32 @@ namespace backend_listaexercicios
                 Console.Clear();
                 resposta = 0;
                 int escolha;
-
+                
+                Console.WriteLine("Jean Augusto - Lista 1" + Environment.NewLine);
                 for (int i = 1; i <= 10; i++)
                 {
                     Console.WriteLine($"{i} - Exercício {i}");
                 }
-                Console.WriteLine("Sair - Encerrar programa");
+                Console.WriteLine(Environment.NewLine + "Sair - Encerrar programa");
                 Console.WriteLine(Environment.NewLine + "Selecione um número para ver o exercício (Ex.: '4' para exercício 4):");
                 string verifica = Console.ReadLine();
-
-                if (verifica == "Sair")
+                
+                //Etapa de verificação de escolha
+                if (verifica == "Sair" || verifica == "sair")
                 {
-                    continue;
+                    continue; //Sai do do-while encerrando o programa
                 }
                 else if ((verifica.All(Char.IsLetter))) //Verifica se a string contém letra
                 {
-                    goto inicio; //Volta para o começo, sem crashar o programa
+                    goto inicio; //Se houver alguma letra no lugar de um número, exceto as palavras de saída, volta para o começo
                 }
-                else if (!(int.Parse(verifica) >= 1 && int.Parse(verifica) <= 10)) //Verifica se é menor que 1 e maior que 10
+                else if (!(int.Parse(verifica) >= 1 && int.Parse(verifica) <= 10)) //Verifica se não é menor que 1 e maior que 10
                 {
-                    goto inicio; //Volta para o começo, sem crashar o programa
+                    goto inicio; //Se for um número que não está entre 1 a 10, volta para o começo
                 }
                 else
                 {
-                    escolha = int.Parse(verifica);
+                    escolha = int.Parse(verifica); //Prossegue com a opção válida escolhida
                 }
                 Console.Clear();
 
@@ -102,7 +104,7 @@ namespace backend_listaexercicios
                 }
 
                 Console.WriteLine(Environment.NewLine + "Voltar ao início? (S/N)");
-                if (Console.ReadLine() != "S")
+                if (Console.ReadLine() != "S" || Console.ReadLine() != "s")
                 {
                     continue;
                 }
@@ -134,15 +136,15 @@ namespace backend_listaexercicios
 
             if (a == b && b == c)
             {
-                Console.WriteLine("Triângulo Equilátero");
+                Console.WriteLine(Environment.NewLine + "Triângulo Equilátero");
             }
             else if (a == b || b == c || a == c)
             {
-                Console.WriteLine("Triângulo Isósceles");
+                Console.WriteLine(Environment.NewLine + "Triângulo Isósceles");
             }
             else
             {
-                Console.WriteLine("Triângulo Escaleno");
+                Console.WriteLine(Environment.NewLine + "Triângulo Escaleno");
             }
         }
 
@@ -178,7 +180,7 @@ namespace backend_listaexercicios
 
             if (sexo == "F")
             {
-                Console.WriteLine(Environment.NewLine + $"O peso ideal para sua altura de {h} m é {((62.1 * h) - 44.7):0.00} kg");
+                Console.WriteLine(Environment.NewLine + $"O peso ideal para sua altura de {h} m é {((62.1 * h) - 44.7):0.00} kg"); //":0.00" arredonda o peso para duas casas decimais
             }
             else if (sexo == "M")
             {
@@ -253,25 +255,21 @@ namespace backend_listaexercicios
             string[] data = d_nasc.Split('/'); //Separa o dia, mês e ano
             d_nasc = data[2] + data[1] + data[0]; //Junta em formato ano+mes+dia
 
-            int hoje = int.Parse(DateTime.Now.ToString("yyyyMMdd")); //Recebe a data atual
+            int hoje = int.Parse(DateTime.Now.ToString("yyyyMMdd")); //Recebe a data atual e deixa o formato igual à data de nascimento
 
-            int idade = int.Parse(Convert.ToString(hoje - int.Parse(d_nasc)).Substring(0, 2)); //Identifica a idade pelos primeiros dois digitos
+            int idade = int.Parse(Convert.ToString(hoje - int.Parse(d_nasc)).Substring(0, 2)); //Identifica a idade pelos primeiros dois digitos da diferença
 
-            if (idade < 16)
+            if (idade < 16) //Mais novo que 16 anos
             {
                 Console.WriteLine($"Você tem {idade} anos e ainda não pode votar e nem conseguir Carteira de Habilitação.");
             }
-            else if (idade >= 16 && idade < 18)
+            else if (idade >= 16 && idade < 18) //Tem 16 anos ou 17, mas não 18 ainda
             {
                 Console.WriteLine($"Você tem {idade} anos e já pode votar, mas ainda não pode conseguir Carteira de Habilitação.");
             }
-            else if (idade >= 18)
+            else if (idade >= 18) //Tem 18 anos ou mais
             {
-                Console.WriteLine($"Você tem {idade} anos e pode votar e conseguir Carteira de Habilitação.");
-            }
-            else
-            {
-                Console.WriteLine("Erro! Tente novamente");
+                Console.WriteLine($"Você tem {idade} anos, portanto pode votar e conseguir Carteira de Habilitação.");
             }
         }
 
@@ -283,7 +281,7 @@ namespace backend_listaexercicios
             Console.WriteLine(Environment.NewLine + "Digite um segundo valor: ");
             int valor2 = int.Parse(Console.ReadLine());
 
-            Console.WriteLine(Environment.NewLine + $"Escolha uma opção de cálculo a ser feita com {valor1} e {valor2}:");
+            Console.WriteLine(Environment.NewLine + $"Escolha uma opção de cálculo a ser feito com {valor1} e {valor2}:");
             Console.WriteLine("A - adição");
             Console.WriteLine("S - subtração");
             Console.WriteLine("M - multiplicação");
