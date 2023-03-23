@@ -27,13 +27,13 @@ namespace backend_listaexercicios
                 {
                     continue;
                 }
-                else if ((verifica.All(Char.IsLetter)))
+                else if ((verifica.All(Char.IsLetter))) //Verifica se a string contém letra
                 {
-                    goto inicio;
+                    goto inicio; //Volta para o começo, sem crashar o programa
                 }
-                else if (!(int.Parse(verifica) >= 1 && int.Parse(verifica) <= 10))
+                else if (!(int.Parse(verifica) >= 1 && int.Parse(verifica) <= 10)) //Verifica se é menor que 1 e maior que 10
                 {
-                    goto inicio;
+                    goto inicio; //Volta para o começo, sem crashar o programa
                 }
                 else
                 {
@@ -250,12 +250,12 @@ namespace backend_listaexercicios
             Console.WriteLine("Digite sua data de nascimento (DD/MM/AAAA):");
             string d_nasc = Console.ReadLine();
 
-            string[] data = d_nasc.Split('/');
-            d_nasc = data[2] + data[1] + data[0];
+            string[] data = d_nasc.Split('/'); //Separa o dia, mês e ano
+            d_nasc = data[2] + data[1] + data[0]; //Junta em formato ano+mes+dia
 
-            int hoje = int.Parse(DateTime.Now.ToString("yyyyMMdd"));
+            int hoje = int.Parse(DateTime.Now.ToString("yyyyMMdd")); //Recebe a data atual
 
-            int idade = int.Parse(Convert.ToString(hoje - int.Parse(d_nasc)).Substring(0, 2));
+            int idade = int.Parse(Convert.ToString(hoje - int.Parse(d_nasc)).Substring(0, 2)); //Identifica a idade pelos primeiros dois digitos
 
             if (idade < 16)
             {
