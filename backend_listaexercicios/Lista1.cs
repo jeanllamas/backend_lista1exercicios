@@ -103,8 +103,10 @@ namespace backend_listaexercicios
                     Exercicio10();
                 }
 
+                //Mensagem para retornar ou encerrar
                 Console.WriteLine(Environment.NewLine + "Voltar ao início? (S/N)");
-                if (Console.ReadLine() != "S" || Console.ReadLine() != "s")
+                string encerrar = Console.ReadLine();
+                if (encerrar != "S" && encerrar != "s")
                 {
                     continue;
                 }
@@ -115,22 +117,26 @@ namespace backend_listaexercicios
 
         static void Exercicio1()
         {
-            Console.WriteLine("Digite um valor:");
+            Console.WriteLine("Exercício 1 - Valor na faixa de 1 a 9" + Environment.NewLine);
+            Console.Write("Digite um valor: ");
             int valor = Convert.ToInt32(Console.ReadLine());
 
             if (valor >= 1 && valor <= 9)
             {
-                Console.WriteLine("O valor está na faixa permitida");
+                Console.WriteLine(Environment.NewLine + "O valor está na faixa permitida");
             }
-            else { Console.WriteLine("O valor está fora da faixa permitida"); }
+            else { Console.WriteLine(Environment.NewLine + "O valor está fora da faixa permitida"); }
         }
 
         static void Exercicio2()
         {
+            Console.WriteLine("Exercício 2 - Três valores para lados de triângulo" + Environment.NewLine);
             Console.Write("Digite o valor do lado A: ");
             int a = Convert.ToInt32(Console.ReadLine());
+
             Console.Write(Environment.NewLine + "Digite o valor do lado B: ");
             int b = Convert.ToInt32(Console.ReadLine());
+
             Console.Write(Environment.NewLine + "Digite o valor do lado C: ");
             int c = Convert.ToInt32(Console.ReadLine());
 
@@ -150,6 +156,7 @@ namespace backend_listaexercicios
 
         static void Exercicio3()
         {
+            Console.WriteLine("Exercício 3 - Mensagem Ilmo Sr. ou Ilma Sra." + Environment.NewLine);
             Console.Write("Digite o nome de uma pessoa: ");
             string nome = Console.ReadLine();
 
@@ -172,10 +179,11 @@ namespace backend_listaexercicios
 
         static void Exercicio4()
         {
+            Console.WriteLine("Exercício 4 - Peso ideal pela altura" + Environment.NewLine);
             Console.WriteLine("Qual a sua altura em metros? (ex.: 1,70)");
             float h = float.Parse(Console.ReadLine());
 
-            Console.WriteLine("Seu sexo é masculino (M) ou feminino (F)?");
+            Console.WriteLine(Environment.NewLine + "Seu sexo é masculino (M) ou feminino (F)?");
             string sexo = Console.ReadLine();
 
             if (sexo == "F")
@@ -194,6 +202,7 @@ namespace backend_listaexercicios
 
         static void Exercicio5()
         {
+            Console.WriteLine("Exercício 5 - Verificar se a soma de A + B é menor que C" + Environment.NewLine);
             Console.Write("Digite um valor para A: ");
             int a = int.Parse(Console.ReadLine());
 
@@ -215,6 +224,7 @@ namespace backend_listaexercicios
 
         static void Exercicio6()
         {
+            Console.WriteLine("Exercício 6 - Calcular valor a ser pago pelo produto" + Environment.NewLine);
             Console.WriteLine("Qual o preço de etiqueta do produto?");
             float preco = float.Parse(Console.ReadLine());
 
@@ -222,33 +232,34 @@ namespace backend_listaexercicios
             Console.WriteLine("b) À vista no cartão de crédito, recebe 15% de desconto;");
             Console.WriteLine("c) Em duas vezes, preço normal de etiqueta sem juros;");
             Console.WriteLine("d) Em duas vezes, preço normal de etiqueta mais juros de 10%.");
-            Console.WriteLine("Como será feito o pagamento? (Digite a letra correspondente)");
+            Console.WriteLine(Environment.NewLine + "Como será feito o pagamento? (Digite a letra correspondente)");
             string pagamento = Console.ReadLine();
 
             if (pagamento == "a")
             {
-                Console.WriteLine($"O produto de R${preco:0.00} recebeu 10% de desconto. O preço a pagar será R${preco - (preco * 0.1):0.00}");
+                Console.WriteLine(Environment.NewLine + $"O produto de R${preco:0.00} recebeu 10% de desconto. O preço a pagar será R${preco - (preco * 0.1):0.00}");
             }
             else if (pagamento == "b")
             {
-                Console.WriteLine($"O produto de R${preco:0.00} recebeu 15% de desconto. O preço a pagar será R${preco - (preco * 0.15):0.00}");
+                Console.WriteLine(Environment.NewLine + $"O produto de R${preco:0.00} recebeu 15% de desconto. O preço a pagar será R${preco - (preco * 0.15):0.00}");
             }
             else if (pagamento == "c")
             {
-                Console.WriteLine($"O produto de R${preco:0.00} será parcelado sem juros. O preço a pagar será 2x de R${(preco / 2):0.00}");
+                Console.WriteLine(Environment.NewLine + $"O produto de R${preco:0.00} será parcelado sem juros. O preço a pagar será 2x de R${(preco / 2):0.00}");
             }
             else if (pagamento == "d")
             {
-                Console.WriteLine($"O produto de R${preco:0.00} será parcelado com 10% juros. O preço a pagar no total será R${(preco * 1.1):0.00} em 2x de R${((preco * 1.1) / 2):0.00}");
+                Console.WriteLine(Environment.NewLine + $"O produto de R${preco:0.00} será parcelado com 10% juros. O preço a pagar no total será R${(preco * 1.1):0.00} em 2x de R${((preco * 1.1) / 2):0.00}");
             }
             else
             {
-                Console.WriteLine("Erro! Tente novamente.");
+                Console.WriteLine(Environment.NewLine + "Erro! Tente novamente.");
             }
         }
 
         static void Exercicio7()
         {
+            Console.WriteLine("Exercício 7 - Checar se tem idade suficiente para votar e ter CNH" + Environment.NewLine);
             Console.WriteLine("Digite sua data de nascimento (DD/MM/AAAA):");
             string d_nasc = Console.ReadLine();
 
@@ -275,17 +286,18 @@ namespace backend_listaexercicios
 
         static void Exercicio8()
         {
+            Console.WriteLine("Exercício 8 - Opções de operações matemáticas" + Environment.NewLine);
             Console.Write("Digite um valor: ");
             int valor1 = int.Parse(Console.ReadLine());
 
             Console.WriteLine(Environment.NewLine + "Digite um segundo valor: ");
             int valor2 = int.Parse(Console.ReadLine());
 
-            Console.WriteLine(Environment.NewLine + $"Escolha uma opção de cálculo a ser feito com {valor1} e {valor2}:");
-            Console.WriteLine("A - adição");
+            Console.WriteLine(Environment.NewLine + "A - adição");
             Console.WriteLine("S - subtração");
             Console.WriteLine("M - multiplicação");
             Console.WriteLine("Q - quociente (inteiro)");
+            Console.WriteLine(Environment.NewLine + $"Escolha uma das opções de cálculo acima a ser feito com {valor1} e {valor2}:");
             string opcao = Console.ReadLine();
 
             if (opcao == "A")
@@ -312,6 +324,7 @@ namespace backend_listaexercicios
 
         static void Exercicio9()
         {
+            Console.WriteLine("Exercício 9 - Qual professor tem salário maior" + Environment.NewLine);
             Console.WriteLine("Quantas aulas o(a) primeiro(a) professor(a) leciona?");
             int aulas_a = int.Parse(Console.ReadLine());
             Console.WriteLine("Quanto o(a) professor(a) recebe por hora/aula? (R$)");
@@ -325,21 +338,22 @@ namespace backend_listaexercicios
             float prof_a = aulas_a * pgmnt_a;
             float prof_b = aulas_b * pgmnt_b;
 
-            Console.WriteLine($"Salário Professor(a) A => R${(prof_a):0.00}");
+            Console.WriteLine(Environment.NewLine + $"Salário Professor(a) A => R${(prof_a):0.00}");
             Console.WriteLine($"Salário Professor(a) B => R${(prof_b):0.00}");
 
             if (prof_a > prof_b)
             {
-                Console.WriteLine("O(A) primeiro(a) professor(a) recebe mais que o(a) segundo(a).");
+                Console.WriteLine(Environment.NewLine + "O(A) primeiro(a) professor(a) recebe mais que o(a) segundo(a).");
             }
             else if (prof_a < prof_b)
             {
-                Console.WriteLine("O(A) segundo(a) professor(a) recebe mais que o(a) primeiro(a).");
+                Console.WriteLine(Environment.NewLine + "O(A) segundo(a) professor(a) recebe mais que o(a) primeiro(a).");
             }
         }
 
         static void Exercicio10()
         {
+            Console.WriteLine("Exercício 10 - Classificação do produto pelo código conforme a tabela" + Environment.NewLine);
             Console.Write("Digite o código do produto: ");
             int codigo = int.Parse(Console.ReadLine());
             Console.Write(Environment.NewLine);
